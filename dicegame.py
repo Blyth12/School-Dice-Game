@@ -118,6 +118,9 @@ if a == "1":
                 if logged_in == True:
                     print ("Credentials accepted")
                     print ("Starting game")
+                    sp1 = 0
+                    sp2 = 0
+
                     time.sleep(1)
                     print ("-----------------------------------")
                     print ("Your roll,", player1)
@@ -131,7 +134,7 @@ if a == "1":
                     print ("Roll 2:",p1d2)
                     print ("")
                     if p1d1 != p1d2:
-                        sp1 = p1d1 + p1d2
+                        sp1 = sp1 + p1d1 + p1d2
                     else:
                         p1d3 = random.randint(1, 10)
                         print ("Doubles bonus! Rolling third dice...")
@@ -139,7 +142,7 @@ if a == "1":
                         time.sleep(1)
                         print("Roll 3:",p1d3)
                         print ("")
-                        sp1 = p1d3 + p1d2 + p1d1
+                        sp1 = sp1 + p1d3
                     if sp1 % 2 == 0: #mod, % checks if remainder = 0
                         print("Even bonus! +10 points")
                         print ("")
@@ -148,7 +151,7 @@ if a == "1":
                     if sp1 < 0:
                         sp1 = 0
                     time.sleep(1)
-                    print ("You scored,",sp1 )
+                    print ("Total score,",sp1 )
                     print("-----------------------------------")
                     print ("")
 
@@ -156,7 +159,6 @@ if a == "1":
 
 
 
-                    print ("Your roll,", player2)
                     print("-----------------------------------")
                     print("Your roll,", player2)
                     print("")
@@ -169,7 +171,7 @@ if a == "1":
                     print("Roll 2:", p2d2)
                     print("")
                     if p2d1 != p2d2:
-                        sp2 = p2d1 + p2d2
+                        sp2 = sp2 + p2d1 + p2d2
                     else:
                         p2d3 = random.randint(1, 10)
                         print("Doubles bonus! Rolling third dice...")
@@ -177,7 +179,7 @@ if a == "1":
                         time.sleep(1)
                         print("Roll 3:", p2d3)
                         print("")
-                        sp2 = p2d3 + p2d2 + p2d1
+                        sp2 = sp2 + p2d3
                     if sp2 % 2 == 0:  # mod, % checks if remainder = 0
                         print("Even bonus! +10 points")
                         print("")
@@ -186,9 +188,111 @@ if a == "1":
                     if sp2 < 0:
                         sp2 = 0
                     time.sleep(1)
-                    print("You scored,", sp2)
+                    print("Total score,", sp2)
                     print("-----------------------------------")
                     print("")
+                    print ("ROUND TWO")
+                    print ("")
+
+                    time.sleep(1)
+                    print ("-----------------------------------")
+                    print ("Your roll,", player1)
+                    print ("")
+                    p1d1 = random.randint(1, 10)
+                    p1d2 = random.randint(1, 10)
+                    time.sleep(1)
+                    print ("Roll 1:",p1d1)
+                    print ("")
+                    time.sleep(1)
+                    print ("Roll 2:",p1d2)
+                    print ("")
+                    if p1d1 != p1d2:
+                        sp1 = sp1 + p1d1 + p1d2
+                    else:
+                        p1d3 = random.randint(1, 10)
+                        print ("Doubles bonus! Rolling third dice...")
+                        print ("")
+                        time.sleep(1)
+                        print("Roll 3:",p1d3)
+                        print ("")
+                        sp1 = sp1 + p1d3
+                    if sp1 % 2 == 0: #mod, % checks if remainder = 0
+                        print("Even bonus! +10 points")
+                        print ("")
+                        time.sleep(1)
+                        sp1 = sp1 + 10
+                    if sp1 < 0:
+                        sp1 = 0
+                    time.sleep(1)
+                    print ("Total score,",sp1 )
+                    print("-----------------------------------")
+                    print ("")
+
+
+
+
+
+                    print("-----------------------------------")
+                    print("Your roll,", player2)
+                    print("")
+                    p2d1 = random.randint(1, 10)
+                    p2d2 = random.randint(1, 10)
+                    time.sleep(1)
+                    print("Roll 1:", p2d1)
+                    print("")
+                    time.sleep(1)
+                    print("Roll 2:", p2d2)
+                    print("")
+                    if p2d1 != p2d2:
+                        sp2 = sp2 + p2d1 + p2d2
+                    else:
+                        p2d3 = random.randint(1, 10)
+                        print("Doubles bonus! Rolling third dice...")
+                        print("")
+                        time.sleep(1)
+                        print("Roll 3:", p2d3)
+                        print("")
+                        sp2 = sp2 + p2d3
+                    if sp2 % 2 == 0:  # mod, % checks if remainder = 0
+                        print("Even bonus! +10 points")
+                        print("")
+                        time.sleep(1)
+                        sp2 = sp2 + 10
+                    if sp2 < 0:
+                        sp2 = 0
+                    time.sleep(1)
+                    print("Total score,", sp2)
+                    print("-----------------------------------")
+                    print("")
+
+                    print ("Game over, scores are in")
+                    time.sleep(1)
+                    print (player1,"scored,",sp1)
+                    time.sleep(1)
+                    print (player2,"scored,",sp2)
+                    time.sleep(1)
+                    print ("So that means...")
+                    time.sleep(1)
+                    if sp1 > sp2:
+                        print (player1,"wins!")
+                    else:
+                        print (player2,"wins!")
+                    time.sleep(1)
+                    p1dfl = [player1,sp1]
+                    p2dfl = [player2,sp2]
+                    file = open("leaderboard.txt", "a")
+                    file.newlines
+                    file.write(str(player1))
+                    file.write(",")
+                    file.write(str(sp1))
+                    file.write("\n")
+                    file.newlines
+                    file.write(str(player2))
+                    file.write(",")
+                    file.write(str(sp2))
+                    file.write("\n")
+                    file.close()
+                    print ("Returning to menu...")
 
                 else:
                     print("Invalid.")
