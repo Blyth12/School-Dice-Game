@@ -2,6 +2,8 @@ import os
 import time
 import sys
 import random
+import datetime
+dt = datetime.datetime.now()
 a = "1"
 if a == "1":
     ld = 0
@@ -16,6 +18,7 @@ if a == "1":
     while men == True:
         print ("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
         print ("            Welcome to the dice game!")
+        print ("            The time is:",dt.hour,":",dt.minute)
         print ("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
         b = input("Main menu. 1. Sign up, 2. Play game, 3. Leaderboard, 4. Settings, 5. Exit. Enter corresponding number ")
         print ("""
@@ -306,11 +309,23 @@ if a == "1":
 
         elif b == "3":
             print ("Leaderboard selected")
-            os.startfile('N:\IT\leaderboard.txt')
+            print("\n")
+            print("⬇ Check out the leaderboard ⬇")
+            f = open('leaderboard.txt', 'r')
+            leaderboard = [line.replace('\n', '') for line in f.readlines()]
+            for i in leaderboard:
+                print(i)
+            f.close()
+            time.sleep(10)
+            #SORTING SYSTEM IN PROGRESS
+
+
+
+
 
         elif b == "4":
             print ("Settings selected")
-            sa = input ("1. Enter dev code 2.  ")
+            sa = input ("1. Enter dev code 2. Open all score data ")
             if sa == "1":
                 print ("Dev code selected")
                 dvc = input("Enter devcode ")
@@ -319,6 +334,9 @@ if a == "1":
                     os.startfile('N:\IT\dieaccounts.txt')
                 else:
                     print ("Invalid.")
+            elif sa == "2":
+                os.startfile('N:\IT\leaderboard.txt')
+
 
             #make scret setting option, if you input code you can acess accounts database.
 
@@ -326,3 +344,5 @@ if a == "1":
             print ("Exit selected.")
             print ("Goodbye.")
             men = False
+            
+            #elliott blyth larrubia
